@@ -1,0 +1,27 @@
+{
+	"$schema": "https://raw.githubusercontent.com/ullrlab/rune/refs/heads/main/misc/rune.schema.json",
+	"configs": {
+		"target": "asterodin",
+		"output": "bin/{config}/{arch}",
+		"target_type": "exe",
+		"profile": "default",
+		"test_profile": "",
+		"test_output": ""
+	},
+	"profiles": [
+		{
+			"name": "default",
+			"arch": "windows_amd64",
+			"entry": "src",
+			"build_flags": [
+				"-vet",
+				"-debug"
+			],
+			"post_build": {
+				"copy": [
+					{ "from": "libs/winx86_64", "to": "" }
+				]
+			}
+		}
+	]
+}
